@@ -27,7 +27,6 @@ displayGuessesSoFar.textContent = guessesSoFar;
 
 //game init to randomly choose letter and set guessesLeft to 10
 function init() {
-    guessesLeft = [10];
     userGuessArray = [];
     let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
                 "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -61,6 +60,8 @@ document.onkeyup = function () {
         wins++;
         displayWins.textContent = wins;
         init();
+        guessesLeft = [10];
+        displayGuessesLeft.textContent = guessesLeft
     }
     else {
         console.log("different letter")
@@ -69,9 +70,11 @@ document.onkeyup = function () {
 
     if (guessesLeft === 0) {
         init();
-        alert("end")
+        alert("You didn't guess the letter")
         losses++;
         displayLosses.textContent = losses;
+        guessesLeft = [10];
+        displayGuessesLeft.textContent = guessesLeft
     }
     
     
